@@ -1,0 +1,360 @@
+.scrabble-container {
+  display: grid;
+  grid-template-columns: auto 600px auto;
+  grid-template-rows: auto 600px auto;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.notation-row, .notation-column {
+  display: flex;
+}
+.notation-row {
+  justify-content: center;
+}
+.notation-column {
+  flex-direction: column;
+  justify-content: center;
+}
+.notation-cell {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+.scrabble-board {
+  display: grid;
+  grid-template-columns: repeat(15, 40px);
+  grid-template-rows: repeat(15, 40px);
+  gap: 1px;
+}
+.cell {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  position: relative; 
+}
+/* Colors for special cells */
+.TW { background-color: red; }
+.DL { background-color: pink; }
+.DW { background-color: yellow; }
+.TL { background-color: lightblue; }
+
+.letter-board {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin: 20px;
+}
+
+.letter {
+width: 80px;
+height: 80px;
+background-color: yellowgreen;
+border: 1px solid #ccc;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: grab;
+position: relative;
+}
+
+.draggable {
+touch-action: none;
+}
+#scoreboard {
+  display: flex;
+  flex-direction: column;
+  width: 200px; /* Adjust width as needed */
+  margin: 20px auto; /* Center the scoreboard */
+  border: 2px solid #000; /* Add a border around the scoreboard */
+  border-radius: 5px; /* Optional: rounds the corners */
+}
+
+#scoreboard > div {
+  display: flex;
+  justify-content: space-between; /* Distribute space between the label and score */
+  padding: 10px; /* Add some padding for spacing */
+  border-bottom: 1px solid #ddd; /* Add a border to separate rows */
+}
+
+#scoreboard > div:last-child {
+  border-bottom: none; /* Remove bottom border for the last row */
+}
+
+/* Styling for the score values */
+#user-score, #computer-score {
+  font-weight: bold;
+}
+body {
+  background-color: #ffffff; /* Your chosen page background color */
+}
+
+#scoreboard, .scrabble-board {
+  background-color: #ffffff; /* Sets the background color specifically for these elements */
+  /* Add more styling as needed */
+}
+#new-tiles {
+background-color: #4CAF50; /* Green background */
+color: white; /* White text */
+padding: 10px 20px; /* Padding around the text */
+text-align: center; /* Center the text inside the button */
+text-decoration: none; /* Remove underline from links */
+display: inline-block; /* Allow setting dimensions */
+font-size: 16px; /* Text size */
+margin: 4px 2px; /* Margin around the button */
+cursor: pointer; /* Change mouse cursor to pointer */
+border: none; /* Remove border */
+border-radius: 8px; /* Rounded corners */
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); /* Add shadow for depth */
+transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+#new-tiles:hover {
+background-color: #45a049; /* Darker shade of green when hovered */
+}
+
+#new-tiles:focus {
+outline: none; /* Remove outline on focus for a clean look */
+}
+
+#refresh-game {
+background-color: #008CBA; /* Blue background */
+color: white; /* White text */
+padding: 10px 20px; /* Padding around the text */
+text-align: center; /* Center the text inside the button */
+text-decoration: none; /* Remove underline from links */
+display: inline-block; /* Allow setting dimensions */
+font-size: 16px; /* Text size */
+margin: 4px 2px; /* Margin around the button */
+cursor: pointer; /* Change mouse cursor to pointer */
+border: none; /* Remove border */
+border-radius: 8px; /* Rounded corners */
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); /* Add shadow for depth */
+transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+#refresh-game:hover {
+background-color: #007B9E; /* Slightly darker shade of blue when hovered */
+}
+
+#refresh-game:focus {
+outline: none; /* Remove outline on focus for a clean look */
+}
+
+#instructions-container {
+position: absolute; /* Adjust positioning as needed */
+right: 0; /* Align to the right of the viewport or container */
+top: 0; /* Align to the top of the viewport or container */
+width: 300px; /* Adjust width as needed */
+margin-left: 20px; /* Space from the Scrabble board */
+padding: 20px;
+background-color: #f9f9f9; /* Light background for readability */
+border: 1px solid #ccc; /* Subtle border */
+border-radius: 5px; /* Rounded corners */
+box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Soft shadow for depth */
+}
+
+@media (max-width: 800px) {
+#instructions-container {
+  position: static; /* Let it flow in the document */
+  width: auto; /* Take full width */
+  margin: 20px 0; /* Adjust margin as needed */
+}
+}
+
+#view-instructions {
+background-color: #2196F3; /* Blue background */
+color: white; /* White text */
+padding: 10px 20px; /* Padding around the text */
+border: none; /* Remove default border */
+border-radius: 5px; /* Rounded corners */
+font-size: 16px; /* Text size */
+cursor: pointer; /* Change mouse cursor to pointer */
+transition: background-color 0.3s ease; /* Smooth background color transition on hover */
+outline: none; /* Remove outline to keep the design clean */
+box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Add shadow for depth */
+margin: 10px 0; /* Margin to separate from other elements, adjust as needed */
+}
+
+#view-instructions:hover {
+background-color: #0D47A1; /* Darker shade of blue when hovered */
+}
+
+#view-instructions:focus {
+box-shadow: 0 0 0 2px rgba(33,150,243,0.5); /* Blue glow effect on focus */
+}
+
+#timer {
+font-size: 20px; /* Adjust size as needed */
+color: #333; /* Timer text color */
+padding: 10px;
+margin: 10px 0;
+text-align: center; /* Center the timer text */
+background-color: #f0f0f0; /* Light background color */
+border-radius: 5px; /* Rounded corners */
+box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Subtle shadow for depth */
+}
+
+.dictionary-container {
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  max-width: 400px; /* Adjust based on your layout */
+  margin: 20px auto;
+}
+
+.word-input {
+  width: calc(100% - 110px);
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.search-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-button:hover {
+  background-color: #45a049;
+}
+
+.meaning {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #333;
+}
+.active-player {
+  background-color: #4CAF50; /* Green background for the active player */
+  color: white; /* White text for better readability */
+}
+
+.inactive-player {
+  background-color: #f9f9f9; /* Light background for inactive player */
+  color: black; /* Black text */
+}
+
+.letter-value {
+position: absolute;
+right: 1px; /* Adjust as needed to position at the bottom-right */
+bottom: 1px; /* Adjust as needed to position at the bottom-right */
+font-size: 0.6em; /* Smaller font size for subscript-like appearance */
+line-height: 1; /* Ensures the span doesn't affect the parent's size */
+color: #000; /* Color for the subscript, adjust as needed */
+vertical-align: sub;
+}
+
+.full-size-value {
+color: white; /* Or the background color of your cell */
+user-select: none; /* Prevents the user from selecting the text and discovering the trick */
+}
+
+.letter-text {
+color: rgb(255, 255, 255); /* Or the background color of your cell */
+user-select: none; /* Prevents the user from selecting the text */
+}
+
+#turn-indicator span {
+padding: 10px;
+cursor: pointer;
+}
+
+.turn-active {
+color: white;
+background-color: #4CAF50; /* Green background */
+}
+
+.turn-inactive {
+color: black;
+background-color: lightgray;
+}
+
+#cheat-sheet-container {
+position: absolute; /* Adjust positioning as needed */
+left: 0; /* Align to the left side */
+top: 0; /* Align to the top, adjust as necessary */
+z-index: 10; /* Ensure it's above other content */
+display: none; /* Hidden by default */
+}
+
+#cheat-sheet-btn {
+background-color: #4CAF50; /* Green background */
+color: white; /* White text */
+border: none; /* Remove default border */
+padding: 10px 20px; /* Padding around the text */
+font-size: 16px; /* Text size */
+cursor: pointer; /* Change mouse cursor to pointer */
+border-radius: 5px; /* Rounded corners */
+outline: none; /* Remove outline to keep the design clean */
+box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Add shadow for depth */
+transition: background-color 0.3s ease; /* Smooth background color transition on hover */
+}
+
+#cheat-sheet-btn:hover {
+background-color: #45a049; /* Darker green when hovered */
+}
+
+#cheat-sheet-btn:focus {
+box-shadow: 0 0 0 2px rgba(0,255,0,0.5); /* Green glow effect on focus */
+}
+
+.STAR {
+background-color: #f0e130; /* Example: gold color */
+/* Add any additional styling as needed */
+}
+
+.TW, .DL, .DW, .TL, .STAR {
+  cursor: not-allowed; /* Change the cursor to indicate dropping is not allowed */
+}
+
+.letter-text {
+font-size: 50px; /* Increase font size for the letter */
+/* Adjust other styles as needed */
+}
+#switchToAITurn:disabled {
+background-color: #ccc;
+color: #666;
+}
+
+#switchToAITurn {
+background-color: #4CAF50; /* Green background */
+color: white; /* White text */
+border: none; /* Remove default border */
+padding: 10px 20px; /* Padding around the text */
+font-size: 16px; /* Text size */
+cursor: pointer; /* Change mouse cursor to pointer */
+border-radius: 5px; /* Rounded corners */
+outline: none; /* Remove outline to keep the design clean */
+box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Add shadow for depth */
+transition: background-color 0.3s ease; /* Smooth background color transition on hover */
+}
+.letter-text {
+display: inline-block;
+font-size: 1em;
+color: black; /* Adjust as needed */
+}
+
+.letter-value {
+display: inline-block;
+font-size: 0.75em;
+color: black; /* Adjust as needed */
+vertical-align: super;
+}
