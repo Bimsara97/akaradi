@@ -445,19 +445,21 @@ const dictionary = {
   "ගෙදර": "පෞද්ගලික වාසස්ථානය",
   // Add more words and meanings here
 };
+document.getElementById('yourButtonId').addEventListener('click', findMeaning);
 
 function findMeaning() {
-  const wordInput = document.getElementById("wordInput").value; // Get the input value
-  const meaningDiv = document.getElementById("meaning"); // Get the div where the meaning will be displayed
+  console.log("Function is called"); // Check if this logs in the console
+  const wordInput = document.getElementById("wordInput").value.trim(); // Added trim() to remove whitespace
+  console.log("Input word:", wordInput); // Check the input value
+  const meaningDiv = document.getElementById("meaning");
 
-  if (wordInput in dictionary) {
-      // If the word is found in the dictionary, display its meaning
-      meaningDiv.textContent = `Meaning: ${dictionary[wordInput]}`;
+  if (dictionary.hasOwnProperty(wordInput)) { // More reliable way to check properties
+    meaningDiv.textContent = `Meaning: ${dictionary[wordInput]}`;
   } else {
-      // If the word is not found, inform the user
-      meaningDiv.textContent = "එවැනි වචනයක් ශබ්දකෝෂයේ නොමැත.";
+    meaningDiv.textContent = "එවැනි වචනයක් ශබ්දකෝෂයේ නොමැත.";
   }
 }
+
 
 // Initialize the turn indicator to reflect the starting player
 updateTurnIndicator("user");

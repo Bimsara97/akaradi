@@ -377,11 +377,66 @@
   z-index: 1000; /* Ensure it's on top of other content */
 }
 
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.site-header {
+    background-color: #131313; /* Dark background for the header */
+    color: white;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    height: 50px; /* Adjust based on your logo's size */
+    width: auto;
+}
+
+.navigation a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s ease;
+}
+
+.navigation a:hover {
+    color: #ddd; /* Lighter shade when hovered */
+}
+
+@media (max-width: 600px) {
+    .header-container {
+        flex-direction: column;
+    }
+
+    .navigation a {
+        margin-top: 10px;
+    }
+}
+s
 
 </style>
 </head>
 <body>
   
+  <header class="site-header">
+    <div class="header-container">
+        <img src="imgs/logo.png" alt="Logo" class="logo">
+        
+    </div>
+</header>
     <!-- Letter board -->
 <div class="letter-board">
   <!-- Letters will be generated here by JavaScript -->
@@ -415,7 +470,7 @@
   </div>
   <button id="switchToAITurn" disabled>Switch to AI Turn</button>
 
-  <div id="warning-message" style="display: none;">Warning: Letters you dropped does not match for the predefined words.</div>
+  <div id="warning-message" style="display: none;">Warning: Mismatched Word</div>
 
 
 <div class="scrabble-container">
