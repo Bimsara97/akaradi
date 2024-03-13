@@ -1,6 +1,6 @@
 const predefinedCells = {
     "B1": {"letter": "අ", "value": 1},
-  "C1": {"letter": "ග", "value": 8},
+  "C1": {"letter": "ණ", "value": 8},
   "C2": {"letter": "ත", "value": 10},
   "D2": {"letter": "ර", "value": 6},
   "E2": {"letter": "ම", "value": 2},
