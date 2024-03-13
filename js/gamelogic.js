@@ -142,11 +142,17 @@ boardElement.addEventListener('drop', (e) => {
         if (isComplete) {
           const isCorrect = cells.every(cell => predefinedCells[cell]?.letter === placedLetters[cell]);
           if (!isCorrect) {
-            alert(`Warning: Letters you dropped does not match for the predefined words.`);
+            // Show the warning message
+            document.getElementById('warning-message').style.display = 'block';
+            // Optionally, hide the message after a few seconds
+            setTimeout(() => {
+              document.getElementById('warning-message').style.display = 'none';
+            }, 5000); // Hides after 5 seconds
           }
         }
       });
     }
+    
 
     
 

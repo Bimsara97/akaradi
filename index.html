@@ -366,7 +366,16 @@
   vertical-align: super;
 }
 
-
+#warning-message {
+  position: fixed; /* Stay in place when scrolling */
+  bottom: 10px; /* Distance from the bottom */
+  right: 10px; /* Distance from the right */
+  background-color: red; /* Background color */
+  color: white; /* Text color */
+  padding: 10px; /* Some padding */
+  border-radius: 5px; /* Rounded corners */
+  z-index: 1000; /* Ensure it's on top of other content */
+}
 
 
 </style>
@@ -405,6 +414,9 @@
     <img src="imgs/cs.png" alt="Cheat Sheet" />
   </div>
   <button id="switchToAITurn" disabled>Switch to AI Turn</button>
+
+  <div id="warning-message" style="display: none;">Warning: Letters you dropped does not match for the predefined words.</div>
+
 
 <div class="scrabble-container">
   <div></div>
